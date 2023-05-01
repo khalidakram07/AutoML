@@ -14,6 +14,11 @@ import os
 
 from src.utils import save_object
 
+"""
+This module provides a data transformation class and its associated configurations for data processing.
+"""
+
+
 @dataclass
 class DataTransformationConfig:
     preprocessor_obj_file_path=os.path.join('artifacts',"proprocessor.pkl")
@@ -24,7 +29,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         '''
-        This function si responsible for data trnasformation
+        This function is responsible for data transformation
         
         '''
         try:
@@ -74,7 +79,18 @@ class DataTransformation:
             raise CustomException(e,sys)
         
     def initiate_data_transformation(self,train_path,test_path):
+        """
+        This method applies the data transformer object on the training and testing dataframes.
 
+        Args:
+        - train_path (str): A string containing the path of the train data csv file.
+        - test_path (str): A string containing the path of the test data csv file.
+
+        Returns:
+        - A tuple containing the preprocessed training array, preprocessed testing array and the file path of the saved 
+        preprocessing object.
+
+        """
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
