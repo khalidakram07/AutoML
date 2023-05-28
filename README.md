@@ -1,1 +1,1 @@
-#Machine learning pipeline for health check
+#Machine learning pipeline for real time inference
